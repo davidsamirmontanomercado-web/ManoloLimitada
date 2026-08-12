@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Compilación
+bin/
+obj/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Configuración local
+appsettings.Development.json
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

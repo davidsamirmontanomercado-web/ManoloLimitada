@@ -1,0 +1,186 @@
+﻿@model IEnumerable<ManoloLimitada.Models.Contacto>
+
+@{
+    ViewData["Title"] = "Contactos";
+}
+
+<div class="container mt-4">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Cerrar">
+            </button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Cerrar">
+            </button>
+        </div>
+    }
+
+    <!-- Encabezado -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1 class="fw-bold">Contactos</h1>
+            <p class="text-muted mb-0">
+                Catálogo de contactos registrados
+            </p>
+        </div>
+
+        <button type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#createModal">
+            + Nuevo contacto
+        </button>
+
+    </div>
+
+
+    <!-- Tabla -->
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info mb-0">
+                    No hay contactos registrados.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead>
+                            <tr>
+                                <th>Cédula</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Fecha nacimiento</th>
+                                <th>Edad</th>
+                                <th>Teléfono</th>
+                                <th>Dirección</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var contacto in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @contacto.Cedula
+                                    </td>
+
+                                    <td>
+                                        @contacto.Nombre
+                                    </td>
+
+                                    <td>
+                                        @contacto.Apellidos
+                                    </td>
+
+                                    <td>
+                                        @(contacto.FechaNacimiento?.ToString("dd/MM/yyyy") ?? "")
+                                    </td>
+
+                                    <td>
+                                        @contacto.Edad años
+                                    </td>
+
+                                    <td>
+                                        @contacto.Telefono
+                                    </td>
+
+                                    <td>
+                                        @contacto.Direccion
+                                    </td>
+
+                                    <td>
+
+                                        <!-- Botón editar -->
+                                        <button type="button"
+                                                class="btn btn-sm btn-warning"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#editModal"
+                                                data-id="@contacto.Id"
+                                                data-cedula="@contacto.Cedula"
+                                                data-nombre="@contacto.Nombre"
+                                                data-apellidos="@contacto.Apellidos"
+                                                data-fecha="@(contacto.FechaNacimiento?.ToString("yyyy-MM-dd") ?? "")"
+                                                data-telefono="@contacto.Telefono"
+                                                data-direccion="@contacto.Direccion">
+
+                                            Editar
+
+                                        </button>
+
+
+                                        <!-- Botón eliminar -->
+                                        <button type="button"
+                                                class="btn btn-sm btn-danger"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#deleteModal"
+                                                data-id="@contacto.Id"
+                                                data-nombre="@contacto.Nombre"
+                                                data-apellidos="@contacto.Apellidos"
+                                                data-cedula="@contacto.Cedula">
+
+                                            Eliminar
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MODALES -->
+@{
+    await Html.RenderPartialAsync("_CreateModal", new ManoloLimitada.Models.Contacto());
+}
+
+@{
+    await Html.RenderPartialAsync("_EditModal", new ManoloLimitada.Models.Contacto());
+}
+
+@{
+    await Html.RenderPartialAsync("_DeleteModal", new ManoloLimitada.Models.Contacto());
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/contactos.js"></script>
+}
