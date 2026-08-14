@@ -1,0 +1,603 @@
+﻿/* ============================================
+   ESTILOS BASE
+   ============================================ */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ff6b35;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ============================================
+   FONDO GEOMÉTRICO ANIMADO - BLANCO
+   ============================================ */
+.geometric-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+/* ============================================
+   TRIÁNGULOS - MÁS VISIBLES
+   ============================================ */
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid rgba(255, 107, 53, 0.15);
+    animation: float-geo 15s infinite alternate ease-in-out;
+}
+
+    .triangle:nth-child(1) {
+        top: 8%;
+        left: 5%;
+        border-bottom-color: rgba(255, 107, 53, 0.20);
+        animation-delay: 0s;
+        animation-duration: 18s;
+        transform: scale(1.8);
+    }
+
+    .triangle:nth-child(2) {
+        top: 55%;
+        right: 6%;
+        border-bottom-color: rgba(255, 107, 53, 0.18);
+        animation-delay: -4s;
+        animation-duration: 14s;
+        transform: scale(2.2);
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 60px solid rgba(255, 107, 53, 0.18);
+    }
+
+    .triangle:nth-child(3) {
+        top: 25%;
+        left: 65%;
+        border-left: 45px solid transparent;
+        border-right: 45px solid transparent;
+        border-bottom: 70px solid rgba(255, 107, 53, 0.12);
+        animation-delay: -7s;
+        animation-duration: 20s;
+    }
+
+    .triangle:nth-child(4) {
+        bottom: 15%;
+        left: 15%;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 40px solid rgba(255, 107, 53, 0.16);
+        animation-delay: -2s;
+        animation-duration: 16s;
+    }
+
+/* ============================================
+   HEXÁGONOS - MÁS VISIBLES
+   ============================================ */
+.hexagon {
+    position: absolute;
+    width: 70px;
+    height: 40.41px;
+    background: rgba(255, 107, 53, 0.10);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: float-geo 20s infinite alternate ease-in-out;
+    border: 1px solid rgba(255, 107, 53, 0.08);
+}
+
+    .hexagon:nth-child(1) {
+        top: 18%;
+        right: 12%;
+        animation-delay: -1s;
+        animation-duration: 22s;
+        transform: scale(1.3);
+        background: rgba(255, 107, 53, 0.12);
+    }
+
+    .hexagon:nth-child(2) {
+        bottom: 25%;
+        left: 8%;
+        animation-delay: -5s;
+        animation-duration: 18s;
+        transform: scale(1.6);
+        background: rgba(255, 107, 53, 0.10);
+    }
+
+    .hexagon:nth-child(3) {
+        top: 65%;
+        right: 25%;
+        animation-delay: -8s;
+        animation-duration: 25s;
+        transform: scale(0.9);
+        background: rgba(255, 107, 53, 0.08);
+    }
+
+/* ============================================
+   CÍRCULOS - MÁS VISIBLES
+   ============================================ */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2.5px solid rgba(255, 107, 53, 0.15);
+    animation: float-geo 16s infinite alternate ease-in-out;
+}
+
+    .circle:nth-child(1) {
+        width: 120px;
+        height: 120px;
+        top: 12%;
+        left: 28%;
+        border-color: rgba(255, 107, 53, 0.20);
+        animation-delay: -3s;
+    }
+
+    .circle:nth-child(2) {
+        width: 180px;
+        height: 180px;
+        bottom: 8%;
+        right: 18%;
+        border-color: rgba(255, 107, 53, 0.12);
+        animation-delay: -6s;
+        animation-duration: 19s;
+    }
+
+    .circle:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        top: 45%;
+        left: 78%;
+        border-color: rgba(255, 107, 53, 0.18);
+        animation-delay: -2s;
+        animation-duration: 14s;
+    }
+
+    .circle:nth-child(4) {
+        width: 250px;
+        height: 250px;
+        top: 2%;
+        right: 2%;
+        border-color: rgba(255, 107, 53, 0.06);
+        animation-delay: -9s;
+        animation-duration: 24s;
+    }
+
+/* ============================================
+   LÍNEAS - MÁS VISIBLES
+   ============================================ */
+.line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.20), transparent);
+    animation: move-line 12s infinite linear;
+}
+
+    .line:nth-child(1) {
+        width: 350px;
+        top: 22%;
+        left: 8%;
+        animation-delay: 0s;
+        animation-duration: 15s;
+    }
+
+    .line:nth-child(2) {
+        width: 450px;
+        top: 50%;
+        right: 3%;
+        animation-delay: -4s;
+        animation-duration: 18s;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.25), transparent);
+    }
+
+    .line:nth-child(3) {
+        width: 280px;
+        top: 78%;
+        left: 25%;
+        animation-delay: -7s;
+        animation-duration: 13s;
+    }
+
+/* Líneas verticales */
+.line-v {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(180deg, transparent, rgba(255, 107, 53, 0.18), transparent);
+    animation: move-line-v 14s infinite linear;
+}
+
+    .line-v:nth-child(1) {
+        height: 350px;
+        top: 8%;
+        left: 42%;
+        animation-delay: -2s;
+    }
+
+    .line-v:nth-child(2) {
+        height: 450px;
+        top: 15%;
+        right: 50%;
+        animation-delay: -6s;
+        animation-duration: 16s;
+    }
+
+    .line-v:nth-child(3) {
+        height: 280px;
+        top: 35%;
+        left: 12%;
+        animation-delay: -9s;
+        animation-duration: 12s;
+    }
+
+/* Líneas diagonales */
+.line-d {
+    position: absolute;
+    height: 2px;
+    width: 250px;
+    background: linear-gradient(135deg, transparent, rgba(255, 107, 53, 0.15), transparent);
+    animation: move-line-d 17s infinite linear;
+    transform: rotate(45deg);
+}
+
+    .line-d:nth-child(1) {
+        top: 30%;
+        left: 48%;
+        animation-delay: -3s;
+    }
+
+    .line-d:nth-child(2) {
+        top: 60%;
+        left: 18%;
+        animation-delay: -8s;
+        animation-duration: 19s;
+        width: 350px;
+    }
+
+    .line-d:nth-child(3) {
+        top: 12%;
+        left: 68%;
+        animation-delay: -5s;
+        animation-duration: 15s;
+        width: 180px;
+    }
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+@keyframes float-geo {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.4;
+    }
+
+    25% {
+        transform: translate(40px, -60px) rotate(8deg) scale(1.15);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: translate(-30px, 50px) rotate(-5deg) scale(0.85);
+        opacity: 0.6;
+    }
+
+    75% {
+        transform: translate(50px, -40px) rotate(10deg) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-40px, 30px) rotate(-8deg) scale(0.9);
+        opacity: 0.4;
+    }
+}
+
+@keyframes move-line {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+}
+
+@keyframes move-line-v {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes move-line-d {
+    0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(100vw, 100vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.login-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+/* ============================================
+   TARJETA DE LOGIN
+   ============================================ */
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 48px 40px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(255, 107, 53, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 107, 53, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Línea decorativa superior naranja */
+    .login-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #ff8c5a, #ff6b35);
+        background-size: 200% 100%;
+        animation: shimmer 3s linear infinite;
+    }
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.login-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15), 0 0 60px rgba(255, 107, 53, 0.08);
+}
+
+.login-card h1 {
+    text-align: center;
+    margin-bottom: 4px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: -0.5px;
+}
+
+    .login-card h1 span {
+        color: #ff6b35;
+    }
+
+.subtitle {
+    text-align: center;
+    color: #6b7a8f;
+    margin-bottom: 32px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+/* ============================================
+   CAMPOS DEL FORMULARIO
+   ============================================ */
+.form-group {
+    margin-bottom: 22px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #2d3e50;
+        letter-spacing: 0.3px;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background: #f8fafc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #1a1a2e;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #ff6b35;
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+        background: #ffffff;
+    }
+
+    .form-control::placeholder {
+        color: #a0aec0;
+        font-weight: 300;
+    }
+
+/* ============================================
+   BOTÓN
+   ============================================ */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff6b35 0%, #e85d2c 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-login::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .btn-login:hover::before {
+        left: 100%;
+    }
+
+    .btn-login:hover {
+        background: linear-gradient(135deg, #ff7a4a 0%, #f05a2a 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+    }
+
+    .btn-login:active {
+        transform: translateY(0px);
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+    }
+
+/* ============================================
+   ALERTA DE ERROR
+   ============================================ */
+.alert {
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background: #fff5f3;
+    border: 1px solid #ffccc7;
+    color: #c0392b;
+    border-left: 4px solid #ff6b35;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.login-footer {
+    text-align: center;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    color: #8a9bb5;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 32px 20px;
+        margin: 10px;
+    }
+
+        .login-card h1 {
+            font-size: 24px;
+        }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .btn-login {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .triangle, .hexagon, .circle, .line, .line-v, .line-d {
+        display: none;
+    }
+}

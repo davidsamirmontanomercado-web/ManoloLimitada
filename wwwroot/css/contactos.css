@@ -1,0 +1,458 @@
+﻿/* ============================================
+   FOOTER - CONTACTOS
+   ============================================ */
+.contactos-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    color: #8a9bb5;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+    .contactos-footer a {
+        color: #ff6b35;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+        .contactos-footer a:hover {
+            color: #e85d2c;
+            text-decoration: underline;
+        }
+
+/* ============================================
+   RESTO DEL CSS (MANTENER LO ANTERIOR)
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    min-height: 100vh;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+/* ============================================
+   ENCABEZADO
+   ============================================ */
+.d-flex.justify-content-between.align-items-center.mb-4 h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+    .d-flex.justify-content-between.align-items-center.mb-4 h1::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b35, #ff8c5a);
+        border-radius: 2px;
+        margin-top: 6px;
+    }
+
+.d-flex.justify-content-between.align-items-center.mb-4 .text-muted {
+    color: #6b7a8f !important;
+    font-size: 15px;
+}
+
+/* ============================================
+   BOTÓN NUEVO CONTACTO
+   ============================================ */
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b35 0%, #e85d2c 100%);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.25);
+    letter-spacing: 0.3px;
+}
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #ff7a4a 0%, #f05a2a 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(255, 107, 53, 0.35);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0px);
+    }
+
+/* ============================================
+   TARJETA (CARD)
+   ============================================ */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06), 0 2px 10px rgba(0, 0, 0, 0.02);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid rgba(255, 107, 53, 0.06);
+}
+
+    .card:hover {
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+.card-body {
+    padding: 0;
+}
+
+/* ============================================
+   TABLA
+   ============================================ */
+.table-responsive {
+    padding: 0;
+}
+
+.table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+    .table thead {
+        background: linear-gradient(135deg, #f8f9fc 0%, #f1f3f8 100%);
+        border-bottom: 2px solid rgba(255, 107, 53, 0.1);
+    }
+
+        .table thead th {
+            padding: 16px 18px;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2d3e50;
+            border-bottom: none;
+            white-space: nowrap;
+        }
+
+    .table tbody tr {
+        transition: all 0.2s ease;
+        border-bottom: 1px solid #f0f2f5;
+    }
+
+        .table tbody tr:hover {
+            background: rgba(255, 107, 53, 0.03);
+            transform: scale(1.002);
+        }
+
+    .table tbody td {
+        padding: 14px 18px;
+        vertical-align: middle;
+        font-size: 14px;
+        color: #1a1a2e;
+        border-bottom: 1px solid #f0f2f5;
+    }
+
+    .table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+/* ============================================
+   BOTONES DE ACCIÓN
+   ============================================ */
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%);
+    border: none;
+    color: #1a1a2e;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    margin-right: 4px;
+}
+
+    .btn-warning:hover {
+        background: linear-gradient(135deg, #ffd44d 0%, #f0b800 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    }
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+    .btn-danger:hover {
+        background: linear-gradient(135deg, #e74c5e 0%, #d63040 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+    }
+
+/* ============================================
+   ALERTAS
+   ============================================ */
+.alert {
+    border-radius: 12px;
+    border: none;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: #f0faf4;
+    border-left: 4px solid #28a745;
+    color: #1a5a3a;
+}
+
+.alert-danger {
+    background: #fdf2f0;
+    border-left: 4px solid #dc3545;
+    color: #8a2a2a;
+}
+
+.alert-info {
+    background: #f0f7ff;
+    border-left: 4px solid #0078ff;
+    color: #1a4a7a;
+}
+
+.alert-dismissible .btn-close {
+    padding: 1.25rem;
+}
+
+.btn-close:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+}
+
+/* ============================================
+   MODALES
+   ============================================ */
+.modal-content {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #f8f9fc 0%, #f1f3f8 100%);
+    border-bottom: 2px solid rgba(255, 107, 53, 0.1);
+    padding: 20px 24px;
+}
+
+    .modal-header .modal-title {
+        font-weight: 700;
+        font-size: 20px;
+        color: #1a1a2e;
+    }
+
+        .modal-header .modal-title span {
+            color: #ff6b35;
+        }
+
+    .modal-header .btn-close:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+    }
+
+.modal-body {
+    padding: 24px;
+}
+
+.modal-footer {
+    border-top: 1px solid #f0f2f5;
+    padding: 16px 24px;
+    background: #fafbfc;
+}
+
+/* Estilos para inputs dentro de modales */
+.modal .form-group {
+    margin-bottom: 18px;
+}
+
+    .modal .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #2d3e50;
+        letter-spacing: 0.3px;
+    }
+
+.modal .form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: #f8fafc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #1a1a2e;
+}
+
+    .modal .form-control:focus {
+        outline: none;
+        border-color: #ff6b35;
+        box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+        background: #ffffff;
+    }
+
+    .modal .form-control::placeholder {
+        color: #a0aec0;
+        font-weight: 300;
+    }
+
+/* Botones en modales */
+.modal .btn-secondary {
+    background: #e2e8f0;
+    border: none;
+    color: #2d3e50;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .modal .btn-secondary:hover {
+        background: #d0d8e4;
+        transform: translateY(-1px);
+    }
+
+.modal .btn-primary {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Modal eliminar - estilo especial */
+#deleteModal .modal-header {
+    border-bottom: 2px solid rgba(220, 53, 69, 0.2);
+}
+
+#deleteModal .text-danger {
+    color: #dc3545 !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 992px) {
+    .container {
+        padding: 15px;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .d-flex.justify-content-between.align-items-center.mb-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+        .d-flex.justify-content-between.align-items-center.mb-4 h1 {
+            font-size: 24px;
+        }
+
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .table thead th {
+        font-size: 11px;
+    }
+
+    .btn-warning,
+    .btn-danger {
+        padding: 4px 12px;
+        font-size: 11px;
+    }
+
+    .modal-body {
+        padding: 16px;
+    }
+
+    .modal-header {
+        padding: 16px 20px;
+    }
+
+        .modal-header .modal-title {
+            font-size: 18px;
+        }
+
+    .contactos-footer {
+        font-size: 12px;
+        margin-top: 30px;
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-responsive {
+        border-radius: 12px;
+        overflow-x: auto;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px 10px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .btn-warning,
+    .btn-danger {
+        padding: 3px 10px;
+        font-size: 10px;
+    }
+
+    .contactos-footer {
+        font-size: 11px;
+        margin-top: 25px;
+        padding-top: 12px;
+    }
+}
+.logo-manolo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.contactos-titulo h1 {
+    margin: 0;
+}

@@ -11,5 +11,15 @@ namespace ManoloLimitada.Data
         }
 
         public DbSet<Contacto> Contactos { get; set; }
+        public DbSet<Administrador> Administradores { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Contacto>()
+                .HasIndex(c => c.Cedula)
+                .IsUnique();
+        }
     }
 }

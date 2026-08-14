@@ -1,6 +1,7 @@
 ﻿using ManoloLimitada.Data;
 using ManoloLimitada.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManoloLimitada.Controllers
@@ -12,6 +13,24 @@ namespace ManoloLimitada.Controllers
         public ContactosController(AppDbContext context)
         {
             _context = context;
+        }
+
+        public override void OnActionExecuting(
+            Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext context)
+        {
+            var administrador = HttpContext.Session.GetString("AdministradorCorreo");
+
+            if (string.IsNullOrEmpty(administrador))
+            {
+                context.Result = RedirectToAction(
+                    "Login",
+                    "Account"
+                );
+
+                return;
+            }
+
+            base.OnActionExecuting(context);
         }
 
         // GET: Contactos
