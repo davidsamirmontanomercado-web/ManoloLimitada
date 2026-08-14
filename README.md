@@ -1,14 +1,14 @@
 # ManoloLimitada
 
-## Descripción
+## DescripciÃ³n
 
-Aplicación web desarrollada para la gestión de contactos mediante un sistema CRUD con un modelo de visual studio
-community con el patron MVC. El sistema permite a un administrador iniciar sesión de forma segura y gestionar la información de los contactos
-registrados, incluyendo creación, consulta, edición y eliminación de registros. La aplicación utiliza 
-Entity Framework Core para la comunicación con SQL Server y aplica validaciones tanto a nivel de aplicación 
+AplicaciÃ³n web desarrollada para la gestiÃ³n de contactos mediante un sistema CRUD con un modelo de visual studio
+community con el patron MVC. El sistema permite a un administrador iniciar sesiÃ³n de forma segura y gestionar la informaciÃ³n de los contactos
+registrados, incluyendo creaciÃ³n, consulta, ediciÃ³n y eliminaciÃ³n de registros. La aplicaciÃ³n utiliza 
+Entity Framework Core para la comunicaciÃ³n con SQL Server y aplica validaciones tanto a nivel de aplicaciÃ³n 
 como de base de datos.
 
-## Tecnologías
+## TecnologÃ­as
 
 - C#
 - ASP.NET Core MVC
@@ -25,40 +25,40 @@ como de base de datos.
 
 ## Funcionalidades
 
-- Inicio de sesión de administrador mediante correo y contraseña.
-- Cierre de sesión.
-- Contraseñas almacenadas utilizando hash.
-- Protección de formularios mediante Anti-Forgery Token.
-- Visualización de contactos registrados.
+- Inicio de sesiÃ³n de administrador mediante correo y contraseÃ±a.
+- Cierre de sesiÃ³n.
+- ContraseÃ±as almacenadas utilizando hash.
+- ProtecciÃ³n de formularios mediante Anti-Forgery Token.
+- VisualizaciÃ³n de contactos registrados.
 - Registro de nuevos contactos.
-- Edición de contactos.
-- Eliminación de contactos.
-- Validación de información.
-- Validación de cédulas únicas.
-- Cálculo y visualización de edad.
-- Mensajes de confirmación y error.
+- EdiciÃ³n de contactos.
+- EliminaciÃ³n de contactos.
+- ValidaciÃ³n de informaciÃ³n.
+- ValidaciÃ³n de cÃ©dulas Ãºnicas.
+- CÃ¡lculo y visualizaciÃ³n de edad.
+- Mensajes de confirmaciÃ³n y error.
 - Modales para crear, editar y eliminar contactos.
-- Persistencia de información mediante SQL Server.
+- Persistencia de informaciÃ³n mediante SQL Server.
 - Migraciones mediante Entity Framework Core.
 - Favicon personalizado.
 - Interfaz adaptable mediante Bootstrap.
 
 ## Validaciones
 
-El sistema realiza diferentes validaciones para garantizar la integridad de la información:
+El sistema realiza diferentes validaciones para garantizar la integridad de la informaciÃ³n:
 
-- Verifica que los campos obligatorios estén diligenciados.
-- Valida la información ingresada en los formularios.
-- Evita registrar una cédula duplicada.
-- La cédula también está protegida mediante un índice único en SQL Server.
+- Verifica que los campos obligatorios estÃ©n diligenciados.
+- Valida la informaciÃ³n ingresada en los formularios.
+- Evita registrar una cÃ©dula duplicada.
+- La cÃ©dula tambiÃ©n estÃ¡ protegida mediante un Ã­ndice Ãºnico en SQL Server.
 - Valida la fecha de nacimiento.
 - Verifica que las operaciones CRUD sean realizadas correctamente.
 - Valida las credenciales del administrador.
-- Evita almacenar contraseñas en texto plano.
+- Evita almacenar contraseÃ±as en texto plano.
 
-Por otro lado, Las contraseñas de los administradores no se almacenan directamente en la base de datos.
+Por otro lado, Las contraseÃ±as de los administradores no se almacenan directamente en la base de datos.
 Se utiliza `PasswordHasher<Administrador>` de ASP.NET Core Identity para generar un hash seguro:
-Durante el inicio de sesión se utiliza: 
+Durante el inicio de sesiÃ³n se utiliza: 
 _passwordHasher.VerifyHashedPassword(
     administrador,
     administrador.Password,
@@ -66,21 +66,21 @@ _passwordHasher.VerifyHashedPassword(
 );
 
 Los formularios utilizan:[ValidateAntiForgeryToken] para proteger las solicitudes POST contra ataques CSRF y 
-Al cerrar sesión se limpia la sesión: HttpContext.Session.Clear();
+Al cerrar sesiÃ³n se limpia la sesiÃ³n: HttpContext.Session.Clear();
 
 ## Base de datos
 
-La aplicación utiliza SQL Server como sistema de gestión de base de datos. La conexión se realiza mediante 
+La aplicaciÃ³n utiliza SQL Server como sistema de gestiÃ³n de base de datos. La conexiÃ³n se realiza mediante 
 Entity Framework Core. 
-La entidad Contacto contiene información como:
+La entidad Contacto contiene informaciÃ³n como:
 
 Id
-Cédula
+CÃ©dula
 Nombre
 Apellidos
 Fecha de nacimiento
-Teléfono
-Dirección
+TelÃ©fono
+DirecciÃ³n
 Edad
 Entidad Administrador
 
@@ -89,20 +89,20 @@ La entidad Administrador contiene:
 Id
 Correo
 Password
-Cédula única
+CÃ©dula Ãºnica
 
-Para evitar que dos contactos tengan la misma cédula, se configuró una restricción de unicidad en SQL Server 
-mediante Entity Framework Core. La migración genera un índice único:
+Para evitar que dos contactos tengan la misma cÃ©dula, se configurÃ³ una restricciÃ³n de unicidad en SQL Server 
+mediante Entity Framework Core. La migraciÃ³n genera un Ã­ndice Ãºnico:
 
 CREATE UNIQUE INDEX [IX_Contactos_Cedula]
 ON [Contactos] ([Cedula]);
 
-De esta manera, la restricción no depende únicamente de la validación del formulario, sino que también está
+De esta manera, la restricciÃ³n no depende Ãºnicamente de la validaciÃ³n del formulario, sino que tambiÃ©n estÃ¡
 protegida directamente en la base de datos.
 
 ## Entity Framework Core
 
-Entity Framework Core se utiliza como ORM para facilitar la comunicación entre la aplicación y SQL Server.
+Entity Framework Core se utiliza como ORM para facilitar la comunicaciÃ³n entre la aplicaciÃ³n y SQL Server.
 El contexto principal es:
 
 public class AppDbContext : DbContext
@@ -121,7 +121,7 @@ public class AppDbContext : DbContext
 data/AppDbContext.cs
 
 Las modificaciones de la estructura de la base de datos se administran mediante migraciones de 
-Entity Framework Core.Ademas la aplicación incluye un DbSeeder encargado de crear un administrador 
+Entity Framework Core.Ademas la aplicaciÃ³n incluye un DbSeeder encargado de crear un administrador 
 inicial cuando no existen administradores registrados. El proceso verifica primero si existe un administrador:
 
 if (await context.Administradores.AnyAsync())
@@ -129,28 +129,48 @@ if (await context.Administradores.AnyAsync())
     return;
 }
 
-Si no existe, se crea el administrador y su contraseña se almacena utilizando hash.
+Si no existe, se crea el administrador y su contraseÃ±a se almacena utilizando hash.
 
-## Instalación
+## InstalaciÃ³n
 
 1: Clonar el repositorio: https://github.com/davidsamirmontanomercado-web/ManoloLimitada.git
-2: Restaurar dependencias: dotnet restore
-3: Configurar la base de datos: Modificar la cadena de conexión en appsettings.json
+
+Visual Studio Code
+
+1.1 Restaurar dependencias: dotnet restore
+1.2 Instalar Entity Framework CLI: dotnet tool install --global dotnet-ef --version 8.0.23
+1.3 Aplicar las migraciones: dotnet ef database update
+1.4 Ejecutar la aplicaciÃ³n dotnet run
+
+Visual Studio Community
+1.1.1 Restaurar dependencias: dotnet restore
+1.1.2 Abrir la Consola del Administrador de paquetes Herramientas â†’ Administrador de paquetes NuGet â†’ Consola del Administrador de paquetes 
+Get-Migration
+Comprobar las migraciones: 
+id                                    name                   safeName               applied
+--                                    ----                   --------               -------
+20260811232121_InitialCreate          InitialCreate          InitialCreate             True
+20260813202134_AgregarAdministradores AgregarAdministradores AgregarAdministradores    True
+20260814010606_HacerCedulaUnica       HacerCedulaUnica       HacerCedulaUnica          True
+1.1.3 Actualizar la base de datos: Update-Database
+1.1.4 Ejecutar la aplicaciÃ³n Ctrl + F5
+
+3: Configurar la base de datos: Modificar la cadena de conexiÃ³n en appsettings.json
 Ejemplo:
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost;Database=ManoloDB;Trusted_Connection=True;TrustServerCertificate=True;"
 }
 4: Aplicar las migraciones desde la Consola del Administrador de paquetes: usando Update-Database O utilizando la CLI:
 dotnet run
-También puede ejecutarse directamente desde Visual Studio.
+TambiÃ©n puede ejecutarse directamente desde Visual Studio.
 
-## Decisiones técnicas
-Se utilizó ASP.NET Core MVC debido a su separación de responsabilidades mediante el patrón Model-View-Controller,
+## Decisiones tÃ©cnicas
+Se utilizÃ³ ASP.NET Core MVC debido a su separaciÃ³n de responsabilidades mediante el patrÃ³n Model-View-Controller,
 Entity Framework Core para facilitar el acceso a SQL Server y administrar la estructura de la base de datos mediante 
-migraciones, Bootstrap para construir una interfaz adaptable y facilitar la creación de formularios, tablas, botones y 
+migraciones, Bootstrap para construir una interfaz adaptable y facilitar la creaciÃ³n de formularios, tablas, botones y 
 modales.
-Para la autenticación se utilizó PasswordHasher<Administrador>, evitando almacenar contraseñas directamente.
-La cédula se configuró como única tanto a nivel de aplicación como de base de datos para garantizar la integridad de los 
+Para la autenticaciÃ³n se utilizÃ³ PasswordHasher<Administrador>, evitando almacenar contraseÃ±as directamente.
+La cÃ©dula se configurÃ³ como Ãºnica tanto a nivel de aplicaciÃ³n como de base de datos para garantizar la integridad de los 
 registros.
 
 ## Requisitoss
